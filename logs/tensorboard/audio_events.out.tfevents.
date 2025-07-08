@@ -1,0 +1,6 @@
+# audio_events.out.tfevents.20250708.fakehost.audio
+Event: step=1  | loss=0.615  | precision=0.74  | recall=0.68
+Event: step=2  | loss=0.541  | precision=0.78  | recall=0.71
+Event: step=3  | loss=0.464  | precision=0.81  | recall=0.76
+Event: step=4  | loss=0.403  | precision=0.84  | recall=0.79
+Event: step=5  | loss=0.341  | precision=0.88  | recall=0.83
