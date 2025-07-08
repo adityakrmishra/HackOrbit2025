@@ -1,0 +1,6 @@
+import kagglehub
+
+# Download latest version
+path = kagglehub.dataset_download("naman3007/hav-df-dataset")
+
+print("Path to dataset files:", path)
