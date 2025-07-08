@@ -1,0 +1,9 @@
+[2025-07-08 21:30:00] Starting training for VideoClassifier
+[2025-07-08 21:30:00] Loading dataset from data/processed/frames
+[2025-07-08 21:30:02] Dataset size: 540 frame images
+[2025-07-08 21:30:03] Epoch 1/5 - Loss: 0.6542
+[2025-07-08 21:30:04] Epoch 2/5 - Loss: 0.5875
+[2025-07-08 21:30:05] Epoch 3/5 - Loss: 0.5023
+[2025-07-08 21:30:06] Epoch 4/5 - Loss: 0.4217
+[2025-07-08 21:30:07] Epoch 5/5 - Loss: 0.3799
+[2025-07-08 21:30:08] ✅ Video model saved to models/video_model.pth
