@@ -1,0 +1,9 @@
+[2025-07-08 21:00:01] Starting training for AudioClassifier
+[2025-07-08 21:00:01] Loading dataset from data/processed/audio
+[2025-07-08 21:00:03] Dataset size: 312 samples
+[2025-07-08 21:00:04] Epoch 1/5 - Loss: 0.6194
+[2025-07-08 21:00:05] Epoch 2/5 - Loss: 0.5421
+[2025-07-08 21:00:06] Epoch 3/5 - Loss: 0.4386
+[2025-07-08 21:00:07] Epoch 4/5 - Loss: 0.3890
+[2025-07-08 21:00:08] Epoch 5/5 - Loss: 0.3312
+[2025-07-08 21:00:09] ✅ Audio model saved to models/audio_model.pth
