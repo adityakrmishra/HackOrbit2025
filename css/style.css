@@ -1,0 +1,199 @@
+/* Custom styles to enhance Tailwind CSS */
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom upload area hover effects */
+.upload-area:hover .border-dashed {
+    border-color: #3B82F6;
+    background-color: #F8FAFC;
+}
+
+/* Custom progress bar animations */
+.progress-bar-animate {
+    transition: width 2s ease-in-out;
+}
+
+/* Custom gradient backgrounds for score indicators */
+.score-excellent {
+    background: linear-gradient(90deg, #10B981, #059669);
+}
+
+.score-good {
+    background: linear-gradient(90deg, #F59E0B, #D97706);
+}
+
+.score-warning {
+    background: linear-gradient(90deg, #EF4444, #DC2626);
+}
+
+/* Custom button hover effects */
+.btn-primary {
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1D4ED8, #1E40AF);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Custom card hover effects */
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Custom loading animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.loading-pulse {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Custom heatmap visualization */
+.heatmap-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.heatmap-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(16, 185, 129, 0.8) 0%, 
+        rgba(245, 158, 11, 0.8) 50%, 
+        rgba(239, 68, 68, 0.8) 100%);
+    opacity: 0.7;
+}
+
+/* Custom file upload styling */
+.file-upload-active {
+    border-color: #3B82F6 !important;
+    background-color: #EFF6FF !important;
+}
+
+.file-upload-active svg {
+    color: #3B82F6 !important;
+}
+
+/* Custom language card animations */
+.language-card {
+    transition: all 0.3s ease;
+}
+
+.language-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom form styling */
+.form-input:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Custom mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .upload-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Custom dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    .auto-dark {
+        background-color: #1F2937;
+        color: #F9FAFB;
+    }
+}
+
+/* Custom accessibility improvements */
+.focus-visible:focus {
+    outline: 2px solid #3B82F6;
+    outline-offset: 2px;
+}
+
+/* Custom print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* Custom animation for results reveal */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* Custom tooltip styling */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1F2937;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}

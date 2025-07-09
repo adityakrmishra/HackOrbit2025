@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatFakeGuard - AI Deepfake Detection for Indian Languages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-charcoal': '#1A1A1A',
+                        'almost-white': '#F4F4F4',
+                        'alert-red': '#FF3B30',
+                        'confidence-green': '#00C853',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-almost-white font-roboto">
+    <!-- Header -->
+    <header class="bg-dark-charcoal text-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">BFG</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-poppins font-bold">BharatFakeGuard</h1>
+                        <p class="text-gray-300 text-sm">AI Deepfake Detection for Indian Languages</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#upload" class="hover:text-blue-400 transition-colors">Upload</a>
+                    <a href="#features" class="hover:text-blue-400 transition-colors">Features</a>
+                    <a href="#languages" class="hover:text-blue-400 transition-colors">Languages</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-blue-50 to-purple-50 py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-poppins font-bold text-dark-charcoal mb-6">
+                Detect Deepfakes in <span class="text-blue-600">Indian Languages</span>
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Advanced AI-powered multimodal detection system supporting Hindi, Bengali, Tamil, Telugu, and more regional languages with real-time analysis and visual explanations.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">🎙️ Audio Analysis</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">🎥 Video Analysis</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">🔍 Real-time Detection</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full shadow-sm">
+                    <span class="text-sm font-medium text-gray-700">📊 Visual Heatmaps</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-poppins font-bold text-dark-charcoal mb-4">Upload & Analyze</h3>
+                <p class="text-gray-600">Upload your audio or video files to detect potential deepfakes</p>
+            </div>
+
+            <!-- Upload Interface -->
+            <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Audio Upload -->
+                    <div class="upload-area" id="audioUpload">
+                        <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors cursor-pointer">
+                            <div class="mb-4">
+                                <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2M9 12l2 2 4-4"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Upload Audio File</h4>
+                            <p class="text-sm text-gray-500 mb-4">Drag & drop or click to select</p>
+                            <p class="text-xs text-gray-400">Supports: WAV, MP3, M4A</p>
+                            <input type="file" id="audioFile" accept=".wav,.mp3,.m4a" class="hidden">
+                        </div>
+                        <div id="audioFileName" class="mt-2 text-sm text-gray-600 hidden"></div>
+                    </div>
+
+                    <!-- Video Upload -->
+                    <div class="upload-area" id="videoUpload">
+                        <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors cursor-pointer">
+                            <div class="mb-4">
+                                <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Upload Video File</h4>
+                            <p class="text-sm text-gray-500 mb-4">Drag & drop or click to select</p>
+                            <p class="text-xs text-gray-400">Supports: MP4, AVI, MOV</p>
+                            <input type="file" id="videoFile" accept=".mp4,.avi,.mov" class="hidden">
+                        </div>
+                        <div id="videoFileName" class="mt-2 text-sm text-gray-600 hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Analyze Button -->
+                <div class="text-center mt-8">
+                    <button id="analyzeBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        🚀 Analyze for Deepfakes
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="hidden">
+                <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+                    <h4 class="text-2xl font-poppins font-bold text-dark-charcoal mb-6">Analysis Results</h4>
+                    
+                    <!-- Loading State -->
+                    <div id="loadingState" class="text-center py-8">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                        <p class="text-gray-600">Analyzing for deepfakes...</p>
+                    </div>
+
+                    <!-- Results Content -->
+                    <div id="resultsContent" class="hidden">
+                        <!-- Overall Score -->
+                        <div class="mb-8">
+                            <div class="flex items-center justify-between mb-4">
+                                <h5 class="text-lg font-semibold text-gray-800">Overall Deepfake Probability</h5>
+                                <span id="overallScore" class="text-2xl font-bold"></span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div id="overallProgressBar" class="h-3 rounded-full transition-all duration-1000"></div>
+                            </div>
+                            <p id="overallVerdict" class="mt-2 text-sm font-medium"></p>
+                        </div>
+
+                        <!-- Individual Scores -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <!-- Audio Score -->
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                                        <span class="text-blue-600">🎙️</span>
+                                    </div>
+                                    <h6 class="font-semibold text-gray-800">Audio Analysis</h6>
+                                </div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-gray-600">Deepfake Score</span>
+                                    <span id="audioScore" class="font-semibold"></span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="audioProgressBar" class="h-2 rounded-full transition-all duration-1000"></div>
+                                </div>
+                            </div>
+
+                            <!-- Video Score -->
+                            <div class="bg-gray-50 rounded-xl p-6">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                        <span class="text-purple-600">🎥</span>
+                                    </div>
+                                    <h6 class="font-semibold text-gray-800">Video Analysis</h6>
+                                </div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm text-gray-600">Deepfake Score</span>
+                                    <span id="videoScore" class="font-semibold"></span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div id="videoProgressBar" class="h-2 rounded-full transition-all duration-1000"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Heatmap Visualization -->
+                        <div class="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-6">
+                            <h6 class="font-semibold text-gray-800 mb-4">📊 Frame-level Analysis Heatmap</h6>
+                            <div class="bg-white rounded-lg p-4">
+                                <div id="heatmapContainer" class="h-20 bg-gradient-to-r from-green-200 via-yellow-200 to-red-200 rounded relative">
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-sm text-gray-600">Visual heatmap showing suspicious regions</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                    <span>Low Risk</span>
+                                    <span>Medium Risk</span>
+                                    <span>High Risk</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Model Explanation -->
+                        <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                            <h6 class="font-semibold text-blue-800 mb-2">🤖 Model Explanation</h6>
+                            <p class="text-sm text-blue-700">
+                                This analysis combines audio spectral features and video facial inconsistencies using our multimodal fusion approach. 
+                                The model was trained on Indian language datasets and uses ensemble learning for improved accuracy.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-poppins font-bold text-dark-charcoal mb-4">Key Features</h3>
+                <p class="text-gray-600">Advanced AI capabilities for comprehensive deepfake detection</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Real-time Detection</h4>
+                    <p class="text-gray-600 text-sm">Instant analysis with frame-level and audio-segment-level inference for immediate results.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🌐</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Multilingual Support</h4>
+                    <p class="text-gray-600 text-sm">Specialized detection for Hindi, Bengali, Tamil, Telugu, and other Indian regional languages.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🔍</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Visual Explanations</h4>
+                    <p class="text-gray-600 text-sm">Confidence heatmaps and frame overlays help interpret model decisions transparently.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Multimodal Fusion</h4>
+                    <p class="text-gray-600 text-sm">Combines audio and video analysis through late fusion for robust detection accuracy.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">📱</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Edge Compatible</h4>
+                    <p class="text-gray-600 text-sm">Lightweight deployment with model pruning and quantization for mobile devices.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <span class="text-2xl">🛡️</span>
+                    </div>
+                    <h4 class="font-semibold text-gray-800 mb-2">High Accuracy</h4>
+                    <p class="text-gray-600 text-sm">Advanced neural networks trained on diverse datasets for reliable deepfake detection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Languages -->
+    <section id="languages" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-3xl font-poppins font-bold text-dark-charcoal mb-4">Supported Languages</h3>
+            <p class="text-gray-600 mb-8">Our AI models are specifically trained on Indian regional languages</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-gradient-to-br from-orange-100 to-red-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🇮🇳</div>
+                    <div class="font-semibold text-gray-800">Hindi</div>
+                    <div class="text-sm text-gray-600">हिन्दी</div>
+                </div>
+                <div class="bg-gradient-to-br from-green-100 to-teal-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🇧🇩</div>
+                    <div class="font-semibold text-gray-800">Bengali</div>
+                    <div class="text-sm text-gray-600">বাংলা</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🏛️</div>
+                    <div class="font-semibold text-gray-800">Tamil</div>
+                    <div class="text-sm text-gray-600">தமிழ்</div>
+                </div>
+                <div class="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🎭</div>
+                    <div class="font-semibold text-gray-800">Telugu</div>
+                    <div class="text-sm text-gray-600">తెలుగు</div>
+                </div>
+                <div class="bg-gradient-to-br from-pink-100 to-rose-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🌺</div>
+                    <div class="font-semibold text-gray-800">Marathi</div>
+                    <div class="text-sm text-gray-600">मराठी</div>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-100 to-blue-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🕌</div>
+                    <div class="font-semibold text-gray-800">Urdu</div>
+                    <div class="text-sm text-gray-600">اردو</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🌴</div>
+                    <div class="font-semibold text-gray-800">Malayalam</div>
+                    <div class="text-sm text-gray-600">മലയാളം</div>
+                </div>
+                <div class="bg-gradient-to-br from-teal-100 to-green-100 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🎪</div>
+                    <div class="font-semibold text-gray-800">Gujarati</div>
+                    <div class="text-sm text-gray-600">ગુજરાતી</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-2xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-poppins font-bold text-dark-charcoal mb-4">Feedback & Contact</h3>
+                <p class="text-gray-600">Help us improve by reporting false positives or sharing suggestions</p>
+            </div>
+
+            <form class="bg-white rounded-xl p-8 shadow-sm">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Feedback Type</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <option>General Feedback</option>
+                        <option>False Positive Report</option>
+                        <option>False Negative Report</option>
+                        <option>Feature Request</option>
+                        <option>Bug Report</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <textarea rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Please describe your feedback or issue..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                    Send Feedback
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-charcoal text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">BFG</span>
+                        </div>
+                        <span class="text-xl font-poppins font-bold">BharatFakeGuard</span>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Advanced AI-powered deepfake detection system for Indian languages, 
+                        built for HackOrbit 2025 AI/ML Track.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#upload" class="hover:text-white transition-colors">Upload & Analyze</a></li>
+                        <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#languages" class="hover:text-white transition-colors">Supported Languages</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Technical Info</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>🎙️ Audio: Mel-spectrogram analysis</li>
+                        <li>🎥 Video: CNN-based visual features</li>
+                        <li>🔗 Fusion: Late ensemble learning</li>
+                        <li>⚡ Real-time inference</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 BharatFakeGuard. Built for HackOrbit 2025 — AI/ML Track • Multilingual Deepfake Detection
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
