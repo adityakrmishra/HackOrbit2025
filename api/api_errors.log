@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/app/fuse.py", line 10, in fuse_predictions
+    video_score = predict_video(video_path)
+  File "/app/predict_video.py", line 14, in predict_video
+    frames = preprocess_video_frames(video_path)
+  File "/app/utils/video_utils.py", line 38, in preprocess_video_frames
+    cap = cv2.VideoCapture(video_path)
+cv2.error: OpenCV(4.5.3) /tmp/opencv/modules/videoio/src/cap.cpp:142: error: (-5:Bad argument) Could not open video file
