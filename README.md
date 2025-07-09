@@ -14,46 +14,6 @@ Deepfake audio/video are increasingly used for misinformation, fraud, and reputa
 
 ---
 
-##  File Structure
-
-```
-deepfake-detection/
-├── README.md
-├── requirements.txt
-├── data/
-│ ├── raw/ # Original real/fake videos & audio
-│ └── processed/ # .npy mel‑spectrograms & extracted frames
-├── models/
-│ ├── audio_model.pth
-│ ├── video_model.pth
-│ └── fusion_weights.json
-├── scripts/
-│ ├── extract_audio.py
-│ ├── extract_frames.py
-│ ├── train_audio.py
-│ ├── train_video.py
-│ ├── predict_audio.py
-│ ├── predict_video.py
-│ └── fuse.py
-├── app/
-│ ├── app.py # FastAPI server (/analyze, /health)
-│ └── Dockerfile
-├── dashboard/
-│ ├── dashboard.py # Streamlit front‑end
-│ └── assets/ # UI demo images/GIFs
-├── utils/
-│ ├── audio_utils.py
-│ ├── video_utils.py
-│ └── viz_utils.py
-├── demo/
-│ ├── sample_real.mp4
-│ ├── sample_fake.mp4
-│ └── demo_script.md
-└── logs/ # Training & API logs
-```
-
-
----
 
 ##  Getting Started
 
