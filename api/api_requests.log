@@ -1,3 +1,0 @@
-{"timestamp": "2025-07-08T21:42:16", "endpoint": "/analyze", "audio_file": "user_audio_1.wav", "video_file": "user_video_1.mp4", "status": "success", "fused_score": 0.712}
-{"timestamp": "2025-07-08T21:45:02", "endpoint": "/analyze", "audio_file": "user_audio_2.wav", "video_file": "user_video_2.mp4", "status": "success", "fused_score": 0.342}
-{"timestamp": "2025-07-08T21:50:10", "endpoint": "/analyze", "audio_file": "sample_missing.wav", "video_file": "corrupt_video.mp4", "status": "error", "error": "Video decoding failed."}
